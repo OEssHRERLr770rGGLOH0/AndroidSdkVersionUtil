@@ -85,6 +85,31 @@ object Version {
     val isLaterThanBase11: Boolean
         get() = Build.VERSION.SDK_INT > Build.VERSION_CODES.BASE_1_1
 
+
+    /**
+     * @return `true` if the device is prior to [Build.VERSION_CODES.BASE_1_1]
+     */
+    val isPrePetitFour: Boolean
+        get() = isPreBase11
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.BASE_1_1]
+     */
+    val isPetitFour: Boolean
+        get() = isBase11
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.BASE_1_1] or later
+     */
+    val isPetitFourOrLater: Boolean
+        get() = isBase11OrLater
+
+    /**
+     * @return `true` if the device is later than [Build.VERSION_CODES.BASE_1_1]
+     */
+    val isLaterThanPetitFour: Boolean
+        get() = isLaterThanBase11
+
     /**
      * @return `true` if the device is prior to [Build.VERSION_CODES.BASE_1_1]
      */
