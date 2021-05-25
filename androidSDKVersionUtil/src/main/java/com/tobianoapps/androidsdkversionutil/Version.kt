@@ -1329,6 +1329,31 @@ object Version {
     val isLaterThanNMR1: Boolean
         get() = Build.VERSION.SDK_INT > Build.VERSION_CODES.N_MR1
 
+
+    /**
+     * @return `true` if the device is prior to [Build.VERSION_CODES.N_MR1]
+     */
+    val isPreNougatMR1: Boolean
+        get() = isPreNMR1
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.N_MR1]
+     */
+    val isNougatMR1: Boolean
+        get() = isNMR1
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.N_MR1] or later
+     */
+    val isNougatMR1OrLater: Boolean
+        get() = isNMR1OrLater
+
+    /**
+     * @return `true` if the device is later than [Build.VERSION_CODES.N_MR1]
+     */
+    val isLaterThanNougatMR1: Boolean
+        get() = isLaterThanNMR1
+
     /**
      * @return `true` if the device is prior to [Build.VERSION_CODES.N_MR1]
      */
