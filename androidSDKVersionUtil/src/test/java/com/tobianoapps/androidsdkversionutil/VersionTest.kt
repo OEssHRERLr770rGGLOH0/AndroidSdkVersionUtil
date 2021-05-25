@@ -170,6 +170,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isLaterThanOreo
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanOreoMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanP
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanPetitFour
+import com.tobianoapps.androidsdkversionutil.Version.isLaterThanPie
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanQ
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanR
 import com.tobianoapps.androidsdkversionutil.Version.isLollipop
@@ -200,6 +201,8 @@ import com.tobianoapps.androidsdkversionutil.Version.isP
 import com.tobianoapps.androidsdkversionutil.Version.isPOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isPetitFour
 import com.tobianoapps.androidsdkversionutil.Version.isPetitFourOrLater
+import com.tobianoapps.androidsdkversionutil.Version.isPie
+import com.tobianoapps.androidsdkversionutil.Version.isPieOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isPre1
 import com.tobianoapps.androidsdkversionutil.Version.isPre10
 import com.tobianoapps.androidsdkversionutil.Version.isPre11
@@ -265,6 +268,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isPreOreo
 import com.tobianoapps.androidsdkversionutil.Version.isPreOreoMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreP
 import com.tobianoapps.androidsdkversionutil.Version.isPrePetitFour
+import com.tobianoapps.androidsdkversionutil.Version.isPrePie
 import com.tobianoapps.androidsdkversionutil.Version.isPreQ
 import com.tobianoapps.androidsdkversionutil.Version.isPreR
 import com.tobianoapps.androidsdkversionutil.Version.isQ
@@ -5483,6 +5487,91 @@ class VersionTest {
     fun `isLaterThanP sdk lower than P returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P - 1)
         val result = isLaterThanP
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPrePie sdk lower than P returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P - 1)
+        val result = isPrePie
+        assertThat(result).isEqualTo(true)
+    }
+
+
+    @Test
+    fun `isPrePie sdk equals P returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P)
+        val result = isPrePie
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPrePie sdk greater than P returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P + 1)
+        val result = isPrePie
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPie sdk equals P returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P)
+        val result = isPie
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isPie sdk greater than P returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P + 1)
+        val result = isPie
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPie sdk lower than P returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P - 1)
+        val result = isPie
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPieOrLater sdk equals P returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P)
+        val result = isPieOrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isPieOrLater sdk greater than P returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P + 1)
+        val result = isPieOrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isPieOrLater sdk lower than P returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P - 1)
+        val result = isPieOrLater
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanPie sdk greater than P returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P + 1)
+        val result = isLaterThanPie
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isLaterThanPie sdk equals P returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P)
+        val result = isLaterThanPie
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanPie sdk lower than P returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.P - 1)
+        val result = isLaterThanPie
         assertThat(result).isEqualTo(false)
     }
 
