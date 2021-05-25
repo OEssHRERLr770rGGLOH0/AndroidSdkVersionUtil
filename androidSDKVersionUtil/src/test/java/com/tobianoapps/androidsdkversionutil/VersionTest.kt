@@ -163,6 +163,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isLaterThanMarshmallow
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanN
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanNMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanNougat
+import com.tobianoapps.androidsdkversionutil.Version.isLaterThanNougatMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanO
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanOMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanP
@@ -182,6 +183,8 @@ import com.tobianoapps.androidsdkversionutil.Version.isNMR1
 import com.tobianoapps.androidsdkversionutil.Version.isNMR1OrLater
 import com.tobianoapps.androidsdkversionutil.Version.isNOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isNougat
+import com.tobianoapps.androidsdkversionutil.Version.isNougatMR1
+import com.tobianoapps.androidsdkversionutil.Version.isNougatMR1OrLater
 import com.tobianoapps.androidsdkversionutil.Version.isNougatOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isO
 import com.tobianoapps.androidsdkversionutil.Version.isOMR1
@@ -249,6 +252,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isPreMarshmallow
 import com.tobianoapps.androidsdkversionutil.Version.isPreN
 import com.tobianoapps.androidsdkversionutil.Version.isPreNMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreNougat
+import com.tobianoapps.androidsdkversionutil.Version.isPreNougatMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreO
 import com.tobianoapps.androidsdkversionutil.Version.isPreOMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreP
@@ -4706,6 +4710,91 @@ class VersionTest {
     fun `isLaterThanNMR1 sdk lower than NMR1 returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 - 1)
         val result = isLaterThanNMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPreNougatMR1 sdk lower than NMR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 - 1)
+        val result = isPreNougatMR1
+        assertThat(result).isEqualTo(true)
+    }
+
+
+    @Test
+    fun `isPreNougatMR1 sdk equals NMR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1)
+        val result = isPreNougatMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPreNougatMR1 sdk greater than NMR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 + 1)
+        val result = isPreNougatMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isNougatMR1 sdk equals NMR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1)
+        val result = isNougatMR1
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isNougatMR1 sdk greater than NMR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 + 1)
+        val result = isNougatMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isNougatMR1 sdk lower than NMR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 - 1)
+        val result = isNougatMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isNougatMR1OrLater sdk equals NMR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1)
+        val result = isNougatMR1OrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isNougatMR1OrLater sdk greater than NMR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 + 1)
+        val result = isNougatMR1OrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isNougatMR1OrLater sdk lower than NMR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 - 1)
+        val result = isNougatMR1OrLater
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanNougatMR1 sdk greater than NMR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 + 1)
+        val result = isLaterThanNougatMR1
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isLaterThanNougatMR1 sdk equals NMR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1)
+        val result = isLaterThanNougatMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanNougatMR1 sdk lower than NMR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.N_MR1 - 1)
+        val result = isLaterThanNougatMR1
         assertThat(result).isEqualTo(false)
     }
 
