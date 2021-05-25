@@ -1179,6 +1179,31 @@ object Version {
     val isLaterThanM: Boolean
         get() = Build.VERSION.SDK_INT > Build.VERSION_CODES.M
 
+
+    /**
+     * @return `true` if the device is prior to [Build.VERSION_CODES.M]
+     */
+    val isPreMarshmallow: Boolean
+        get() = isPreM
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.M]
+     */
+    val isMarshmallow: Boolean
+        get() = isM
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.M] or later
+     */
+    val isMarshmallowOrLater: Boolean
+        get() = isMOrLater
+
+    /**
+     * @return `true` if the device is later than [Build.VERSION_CODES.M]
+     */
+    val isLaterThanMarshmallow: Boolean
+        get() = isLaterThanM
+
     /**
      * @return `true` if the device is prior to [Build.VERSION_CODES.M]
      */
