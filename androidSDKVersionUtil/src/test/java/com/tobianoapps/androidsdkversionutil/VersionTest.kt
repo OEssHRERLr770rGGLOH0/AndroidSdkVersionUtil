@@ -159,6 +159,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isLaterThanKitKatWatch
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanLollipop
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanLollipopMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanM
+import com.tobianoapps.androidsdkversionutil.Version.isLaterThanMarshmallow
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanN
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanNMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanO
@@ -173,6 +174,8 @@ import com.tobianoapps.androidsdkversionutil.Version.isLollipopMR1OrLater
 import com.tobianoapps.androidsdkversionutil.Version.isLollipopOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isM
 import com.tobianoapps.androidsdkversionutil.Version.isMOrLater
+import com.tobianoapps.androidsdkversionutil.Version.isMarshmallow
+import com.tobianoapps.androidsdkversionutil.Version.isMarshmallowOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isN
 import com.tobianoapps.androidsdkversionutil.Version.isNMR1
 import com.tobianoapps.androidsdkversionutil.Version.isNMR1OrLater
@@ -239,6 +242,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isPreKitKatWatch
 import com.tobianoapps.androidsdkversionutil.Version.isPreLollipop
 import com.tobianoapps.androidsdkversionutil.Version.isPreLollipopMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreM
+import com.tobianoapps.androidsdkversionutil.Version.isPreMarshmallow
 import com.tobianoapps.androidsdkversionutil.Version.isPreN
 import com.tobianoapps.androidsdkversionutil.Version.isPreNMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreO
@@ -4188,6 +4192,91 @@ class VersionTest {
     fun `isLaterThanM sdk lower than M returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M - 1)
         val result = isLaterThanM
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPreMarshmallow sdk lower than M returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M - 1)
+        val result = isPreMarshmallow
+        assertThat(result).isEqualTo(true)
+    }
+
+
+    @Test
+    fun `isPreMarshmallow sdk equals M returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M)
+        val result = isPreMarshmallow
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPreMarshmallow sdk greater than M returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M + 1)
+        val result = isPreMarshmallow
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isMarshmallow sdk equals M returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M)
+        val result = isMarshmallow
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isMarshmallow sdk greater than M returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M + 1)
+        val result = isMarshmallow
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isMarshmallow sdk lower than M returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M - 1)
+        val result = isMarshmallow
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isMarshmallowOrLater sdk equals M returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M)
+        val result = isMarshmallowOrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isMarshmallowOrLater sdk greater than M returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M + 1)
+        val result = isMarshmallowOrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isMarshmallowOrLater sdk lower than M returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M - 1)
+        val result = isMarshmallowOrLater
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanMarshmallow sdk greater than M returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M + 1)
+        val result = isLaterThanMarshmallow
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isLaterThanMarshmallow sdk equals M returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M)
+        val result = isLaterThanMarshmallow
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanMarshmallow sdk lower than M returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.M - 1)
+        val result = isLaterThanMarshmallow
         assertThat(result).isEqualTo(false)
     }
 
