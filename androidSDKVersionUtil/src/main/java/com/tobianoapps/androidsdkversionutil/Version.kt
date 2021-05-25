@@ -1569,7 +1569,7 @@ object Version {
      * Simple wrapper function around `Build.VERSION.SDK_INT`. Useful when checking
      * version range. Example:
      * ```
-     *  when (AndroidVersionUtil.number) {
+     *  when (Version.sdkVersionNumber) {
      *      in 24..28 -> {...}
      *      else -> {...}
      *  }
