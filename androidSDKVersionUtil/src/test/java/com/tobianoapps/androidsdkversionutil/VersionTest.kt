@@ -167,6 +167,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isLaterThanNougatMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanO
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanOMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanOreo
+import com.tobianoapps.androidsdkversionutil.Version.isLaterThanOreoMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanP
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanPetitFour
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanQ
@@ -192,6 +193,8 @@ import com.tobianoapps.androidsdkversionutil.Version.isOMR1
 import com.tobianoapps.androidsdkversionutil.Version.isOMR1OrLater
 import com.tobianoapps.androidsdkversionutil.Version.isOOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isOreo
+import com.tobianoapps.androidsdkversionutil.Version.isOreoMR1
+import com.tobianoapps.androidsdkversionutil.Version.isOreoMR1OrLater
 import com.tobianoapps.androidsdkversionutil.Version.isOreoOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isP
 import com.tobianoapps.androidsdkversionutil.Version.isPOrLater
@@ -259,6 +262,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isPreNougatMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreO
 import com.tobianoapps.androidsdkversionutil.Version.isPreOMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreOreo
+import com.tobianoapps.androidsdkversionutil.Version.isPreOreoMR1
 import com.tobianoapps.androidsdkversionutil.Version.isPreP
 import com.tobianoapps.androidsdkversionutil.Version.isPrePetitFour
 import com.tobianoapps.androidsdkversionutil.Version.isPreQ
@@ -5224,6 +5228,91 @@ class VersionTest {
     fun `isLaterThanOMR1 sdk lower than O_MR1 returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 - 1)
         val result = isLaterThanOMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPreOreoMR1 sdk lower than O_MR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 - 1)
+        val result = isPreOreoMR1
+        assertThat(result).isEqualTo(true)
+    }
+
+
+    @Test
+    fun `isPreOreoMR1 sdk equals O_MR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1)
+        val result = isPreOreoMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPreOreoMR1 sdk greater than O_MR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 + 1)
+        val result = isPreOreoMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isOreoMR1 sdk equals O_MR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1)
+        val result = isOreoMR1
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isOreoMR1 sdk greater than O_MR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 + 1)
+        val result = isOreoMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isOreoMR1 sdk lower than O_MR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 - 1)
+        val result = isOreoMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isOreoMR1OrLater sdk equals O_MR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1)
+        val result = isOreoMR1OrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isOreoMR1OrLater sdk greater than O_MR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 + 1)
+        val result = isOreoMR1OrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isOreoMR1OrLater sdk lower than O_MR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 - 1)
+        val result = isOreoMR1OrLater
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanOreoMR1 sdk greater than O_MR1 returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 + 1)
+        val result = isLaterThanOreoMR1
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isLaterThanOreoMR1 sdk equals O_MR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1)
+        val result = isLaterThanOreoMR1
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanOreoMR1 sdk lower than O_MR1 returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.O_MR1 - 1)
+        val result = isLaterThanOreoMR1
         assertThat(result).isEqualTo(false)
     }
 
