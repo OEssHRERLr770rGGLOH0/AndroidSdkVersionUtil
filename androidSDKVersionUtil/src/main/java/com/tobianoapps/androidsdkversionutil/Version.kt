@@ -1558,6 +1558,31 @@ object Version {
     val isLaterThanP: Boolean
         get() = Build.VERSION.SDK_INT > Build.VERSION_CODES.P
 
+
+    /**
+     * @return `true` if the device is prior to [Build.VERSION_CODES.P]
+     */
+    val isPrePie: Boolean
+        get() = isPreP
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.P]
+     */
+    val isPie: Boolean
+        get() = isP
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.P] or later
+     */
+    val isPieOrLater: Boolean
+        get() = isPOrLater
+
+    /**
+     * @return `true` if the device is later than [Build.VERSION_CODES.P]
+     */
+    val isLaterThanPie: Boolean
+        get() = isLaterThanP
+
     /**
      * @return `true` if the device is prior to [Build.VERSION_CODES.P]
      */
