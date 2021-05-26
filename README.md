@@ -60,4 +60,13 @@ isM == isMarshmallow == is23
 ```kotlin
 val version = sdkVersionNumber
 ```
+
+Useful for checking range for example:
+
+```kotlin
+when (sdkVersionNumber) {
+ in 24..28 -> {...}
+ else -> {...}
+ }
+ ```
         
