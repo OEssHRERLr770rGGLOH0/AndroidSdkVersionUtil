@@ -5,7 +5,7 @@ package com.tobianoapps.androidsdkversionutil
 import android.annotation.SuppressLint
 import android.os.Build
 
-@SuppressLint("ObsoleteSdkInt")
+@SuppressLint("ObsoleteSdkInt", "AnnotateVersionCheck")
 object Version {
 
     /*** BASE / 1 ***/
