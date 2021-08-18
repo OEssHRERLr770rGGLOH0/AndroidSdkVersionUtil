@@ -5847,7 +5847,7 @@ class VersionTest {
 
 
     @Test
-    fun `isPreR sdk equals Q returns false`() {
+    fun `isPreR sdk equals R returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R)
         val result = isPreR
         assertThat(result).isEqualTo(false)
@@ -5861,7 +5861,7 @@ class VersionTest {
     }
 
     @Test
-    fun `isR sdk equals Q returns true`() {
+    fun `isR sdk equals R returns true`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R)
         val result = isR
         assertThat(result).isEqualTo(true)
@@ -5882,7 +5882,7 @@ class VersionTest {
     }
 
     @Test
-    fun `isROrLater sdk equals Q returns true`() {
+    fun `isROrLater sdk equals R returns true`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R)
         val result = isROrLater
         assertThat(result).isEqualTo(true)
@@ -5910,7 +5910,7 @@ class VersionTest {
     }
 
     @Test
-    fun `isLaterThanR sdk equals Q returns false`() {
+    fun `isLaterThanR sdk equals R returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R)
         val result = isLaterThanR
         assertThat(result).isEqualTo(false)
@@ -5932,7 +5932,7 @@ class VersionTest {
 
 
     @Test
-    fun `isPre30 sdk equals Q returns false`() {
+    fun `isPre30 sdk equals R returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R)
         val result = isPre30
         assertThat(result).isEqualTo(false)
@@ -5946,7 +5946,7 @@ class VersionTest {
     }
 
     @Test
-    fun `is30 sdk equals Q returns true`() {
+    fun `is30 sdk equals R returns true`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R)
         val result = is30
         assertThat(result).isEqualTo(true)
@@ -5967,7 +5967,7 @@ class VersionTest {
     }
 
     @Test
-    fun `is30OrLater sdk equals Q returns true`() {
+    fun `is30OrLater sdk equals R returns true`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R)
         val result = is30OrLater
         assertThat(result).isEqualTo(true)
@@ -5995,7 +5995,7 @@ class VersionTest {
     }
 
     @Test
-    fun `isLaterThan30 sdk equals Q returns false`() {
+    fun `isLaterThan30 sdk equals R returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R)
         val result = isLaterThan30
         assertThat(result).isEqualTo(false)
