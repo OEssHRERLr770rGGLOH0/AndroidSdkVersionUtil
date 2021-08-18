@@ -1709,6 +1709,57 @@ object Version {
         get() = isLaterThanR
 
 
+    /*** S / 31 ***/
+
+    /**
+     * @return `true` if the device is prior to [Build.VERSION_CODES.S]
+     */
+    val isPreS: Boolean
+        get() = Build.VERSION.SDK_INT < Build.VERSION_CODES.S
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.S]
+     */
+    val isS: Boolean
+        get() = Build.VERSION.SDK_INT == Build.VERSION_CODES.S
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.S] or later
+     */
+    val isSOrLater: Boolean
+        get() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+
+    /**
+     * @return `true` if the device is later than [Build.VERSION_CODES.S]
+     */
+    val isLaterThanS: Boolean
+        get() = Build.VERSION.SDK_INT > Build.VERSION_CODES.S
+
+    /**
+     * @return `true` if the device is prior to [Build.VERSION_CODES.S]
+     */
+    val isPre31: Boolean
+        get() = isPreS
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.S]
+     */
+    val is31: Boolean
+        get() = isS
+
+    /**
+     * @return `true` if the device is [Build.VERSION_CODES.S] or later
+     */
+    val is31OrLater: Boolean
+        get() = isSOrLater
+
+    /**
+     * @return `true` if the device is later than [Build.VERSION_CODES.S]
+     */
+    val isLaterThan31: Boolean
+        get() = isLaterThanS
+
+
 
 
     /*** UNRELEASED STILL UNDER DEVELOPMENT VERSION ***/

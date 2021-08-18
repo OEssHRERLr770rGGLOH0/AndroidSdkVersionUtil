@@ -50,6 +50,8 @@ import com.tobianoapps.androidsdkversionutil.Version.is2OrLater
 import com.tobianoapps.androidsdkversionutil.Version.is3
 import com.tobianoapps.androidsdkversionutil.Version.is30
 import com.tobianoapps.androidsdkversionutil.Version.is30OrLater
+import com.tobianoapps.androidsdkversionutil.Version.is31
+import com.tobianoapps.androidsdkversionutil.Version.is31OrLater
 import com.tobianoapps.androidsdkversionutil.Version.is3OrLater
 import com.tobianoapps.androidsdkversionutil.Version.is4
 import com.tobianoapps.androidsdkversionutil.Version.is4OrLater
@@ -129,6 +131,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isLaterThan28
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThan29
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThan3
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThan30
+import com.tobianoapps.androidsdkversionutil.Version.isLaterThan31
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThan4
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThan5
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThan6
@@ -173,6 +176,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isLaterThanPetitFour
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanPie
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanQ
 import com.tobianoapps.androidsdkversionutil.Version.isLaterThanR
+import com.tobianoapps.androidsdkversionutil.Version.isLaterThanS
 import com.tobianoapps.androidsdkversionutil.Version.isLollipop
 import com.tobianoapps.androidsdkversionutil.Version.isLollipopMR1
 import com.tobianoapps.androidsdkversionutil.Version.isLollipopMR1OrLater
@@ -227,6 +231,7 @@ import com.tobianoapps.androidsdkversionutil.Version.isPre28
 import com.tobianoapps.androidsdkversionutil.Version.isPre29
 import com.tobianoapps.androidsdkversionutil.Version.isPre3
 import com.tobianoapps.androidsdkversionutil.Version.isPre30
+import com.tobianoapps.androidsdkversionutil.Version.isPre31
 import com.tobianoapps.androidsdkversionutil.Version.isPre4
 import com.tobianoapps.androidsdkversionutil.Version.isPre5
 import com.tobianoapps.androidsdkversionutil.Version.isPre6
@@ -271,10 +276,13 @@ import com.tobianoapps.androidsdkversionutil.Version.isPrePetitFour
 import com.tobianoapps.androidsdkversionutil.Version.isPrePie
 import com.tobianoapps.androidsdkversionutil.Version.isPreQ
 import com.tobianoapps.androidsdkversionutil.Version.isPreR
+import com.tobianoapps.androidsdkversionutil.Version.isPreS
 import com.tobianoapps.androidsdkversionutil.Version.isQ
 import com.tobianoapps.androidsdkversionutil.Version.isQOrLater
 import com.tobianoapps.androidsdkversionutil.Version.isR
 import com.tobianoapps.androidsdkversionutil.Version.isROrLater
+import com.tobianoapps.androidsdkversionutil.Version.isS
+import com.tobianoapps.androidsdkversionutil.Version.isSOrLater
 import com.tobianoapps.androidsdkversionutil.Version.sdkVersionNumber
 import org.junit.After
 import org.junit.Test
@@ -5997,6 +6005,175 @@ class VersionTest {
     fun `isLaterThan30 sdk lower than R returns false`() {
         setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.R - 1)
         val result = isLaterThan30
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPreS sdk lower than S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S - 1)
+        val result = isPreS
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isPreS sdk equals R returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S)
+        val result = isPreS
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPreS sdk greater than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S + 1)
+        val result = isPreS
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isS sdk equals S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S)
+        val result = isS
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isS sdk greater than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S + 1)
+        val result = isS
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isS sdk lower than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S - 1)
+        val result = isS
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isSOrLater sdk equals S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S)
+        val result = isSOrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isSOrLater sdk greater than S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S + 1)
+        val result = isSOrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isSOrLater sdk lower than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S - 1)
+        val result = isSOrLater
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanS sdk greater than S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S + 1)
+        val result = isLaterThanS
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isLaterThanS sdk equals S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S)
+        val result = isLaterThanS
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThanS sdk lower than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S - 1)
+        val result = isLaterThanS
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPre31 sdk lower than S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S - 1)
+        val result = isPre31
+        assertThat(result).isEqualTo(true)
+    }
+
+
+    @Test
+    fun `isPre31 sdk equals S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S)
+        val result = isPre31
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isPre31 sdk greater than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S + 1)
+        val result = isPre31
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `is31 sdk equals S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S)
+        val result = is31
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `is31 sdk greater than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S + 1)
+        val result = is31
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `is31 sdk lower than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S - 1)
+        val result = is31
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `is31OrLater sdk equals S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S)
+        val result = is31OrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `is31OrLater sdk greater than S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S + 1)
+        val result = is31OrLater
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `is31OrLater sdk lower than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S - 1)
+        val result = is31OrLater
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThan31 sdk greater than S returns true`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S + 1)
+        val result = isLaterThan31
+        assertThat(result).isEqualTo(true)
+    }
+
+    @Test
+    fun `isLaterThan31 sdk equals S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S)
+        val result = isLaterThan31
+        assertThat(result).isEqualTo(false)
+    }
+
+    @Test
+    fun `isLaterThan31 sdk lower than S returns false`() {
+        setFinalStatic(VERSION::class.java.getField("SDK_INT"), Build.VERSION_CODES.S - 1)
+        val result = isLaterThan31
         assertThat(result).isEqualTo(false)
     }
 
