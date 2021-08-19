@@ -3,13 +3,14 @@
     package="com.tobianoapps.androidsdkversionutildemo">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidSDKVersion">
-        <activity android:name="com.tobianoapps.androidsdkversionutildemo.MainActivity">
+        <activity android:name="com.tobianoapps.androidsdkversionutildemo.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
