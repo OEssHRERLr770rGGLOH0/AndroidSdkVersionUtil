@@ -15,7 +15,7 @@ Step 1. Add jitpack in your root build.gradle at the end of repositories:
 Step 2. Add the library
 
 	dependencies {
-	       implementation 'com.github.OEssHRERLr770rGGLOH0:AndroidSdkVersionUtil:0.10'
+	       implementation 'com.github.sebastinto:AndroidSdkVersionUtil:0.10'
 	}
 
 
